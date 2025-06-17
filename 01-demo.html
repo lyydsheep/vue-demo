@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Vue</title>
+</head>
+<body>
+<div id="body">
+    <h1>{{msg}}</h1>
+    <h2>
+        <span>
+            {{count}}
+        </span>
+    </h2>
+</div>
+
+</body>
+</html>
+
+<!--引入 vue 核心代码-->
+<script src="./js/vue.js"></script>
+
+<script>new Vue({
+    el: "#body",
+    data: {
+        msg:"hello vue",
+        count: 1,
+    }
+})</script>
+<!--
+    0、一个页面中只能有一个 Vue 实例。
+    1、el 属性表示 Vue 实例的作用域，一般使用 id 选择器，因为 Vue 实例只能有一个作用域。
+    2、不建议选择在html、body 当做作用域的标签，因此需要一个 div 标签包裹。
+    3、在作用域范围内通过{{}}，获取 Vue 实例中 data 成员的属性值，并且可以进行算数逻辑运算。
+-->
