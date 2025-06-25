@@ -34,4 +34,54 @@
 <input v-model="text">
 ```
 
+### 列表渲染
+1. 使用`v-for`指令来渲染一个基于原数组的列表
+```vue
+<li v-for="todo in todos" :key="todo.id">
+  {{todo.text}}
+</li>
+```
 
+### 计算属性
+1. computed可以让创建一个计算属性ref，这个 ref 会动态的根据依赖的响应式数据动态的计算其`.value`
+
+### 生命周期和模板引用
+1. 模板应用：指向模板中一个 DOM 元素的 ref
+```vue
+<p ref="pElementRef">hello</p>
+
+<!--当 script setup 执行时 DOM 元素还不存在，所以初始值为 null-->
+const pElementRef = ref(null)
+```
+
+### 侦听器
+1. `watch()可以直接侦听一个 ref，并且值发生改变就触发回调`
+
+### 组件
+1. 父组件可以在模板中渲染另一个组件作为子组件。
+
+### Props
+1. 子组件可以通过 props 从父组件接受动态数据
+```vue
+<script setup>
+  const props = defineProps({
+    msg: String
+  })
+</script>1
+```
+
+### Emits
+1. 子组件可以向父组件触发事件
+2. ·emit()的第一个参数是事件的名称，其他所有参数都传给事件监听器
+```vue
+const emit = defineEmits(['response'])
+emit('response', 'hello')
+```
+
+### 插槽
+1. 除了 props 传递数据外，父组件还可以通过插槽（slots）将模板片段传递给子组件
+```vue
+<childComp>
+  This is some slot content!
+</childComp>
+```
